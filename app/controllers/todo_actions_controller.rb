@@ -5,12 +5,9 @@ class TodoActionsController < ApplicationController
    def create
     @todo_action = TodoAction.create(action_params)
     redirect_to current_user
+    #for if I want to render json for ajax calls later
     # @todo_action_partial = render_to_string(partial: 'todo_actions/todo_action_row.html.erb', locals: {todo:  @todo_action})
     # render :json => {todo_action: @todo_action_partial}
-   end
-
-   def update
-     binding.pry
    end
 
    def destroy

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'sessions#new'
 
+  devise_scope :user do
+    get '/sign_out', to: "devise/sessions#destroy"
+  end
+
+  get '/', to: "users#show"
   resources :todos
-  resources :users
+  resources :users, only: [:show]
   resources :todo_actions
   post 'todo_actions/:id' => 'todo_actions#mark_complete'
 
