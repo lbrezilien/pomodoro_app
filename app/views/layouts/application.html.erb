@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pomodoro!</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+      	<div id="theme-wrapper">
+        		<header class="navbar" id="header-navbar">
+        			<div class="container">
+        				<div class="clearfix">
+                  <a href="https://pymetrics.com/"><img src="https://pymetrics.com/static/img/logo.png" class="logo"/></a>
+        				</div>
+        			</div>
+        		</header>
+
+            <div id="page-wrapper" class="container">
+                <%= render partial: 'layouts/side_bar' %>
+                <%= yield %>
+            </div>
+          </div>
+          
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    </body>
+</html>

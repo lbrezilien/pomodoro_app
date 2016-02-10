@@ -1,0 +1,29 @@
+<div class="row pomodoros">
+    <div class="col-xs-7">
+        <%= todo_action.name %>
+    </div>
+    <div class="col-xs-2">
+      <span class="bigger-icons">
+          <i class="fa fa-pencil " data-toggle="modal" data-target="#myModal<%= todo.id %>"></i>
+          <%= link_to todo_action_path(todo_action), method: :delete do %>
+              <i class="fa fa-trash"></i>
+          <% end %>
+      </span>
+    </div>
+    <div class="col-xs-3">
+         <% if todo_action.completed %>
+              <div class="mark-complete bigger-icons">
+                  <i class="fa fa-check-square-o"></i>
+              </div>
+          <% else %>
+            <button class="btn btn-default start-timer-button" data-todo-action-id="<%= todo_action.id %>">
+              Begin <i class="fa fa-clock-o"></i>
+            </button>
+            <div class="timer">
+              <div class="time">
+                  25:00
+              </div>
+            </div>
+         <% end %>
+    </div>
+ </div>

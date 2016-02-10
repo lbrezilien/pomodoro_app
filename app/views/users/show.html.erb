@@ -1,0 +1,53 @@
+
+<div id="content-wrapper">
+    <div class="main-box clearfix main-box-header add-padding" >
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>New ToDos</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <%= form_for @todo do |f| %>
+                  <%= render partial: 'todos/form', locals: {f:f} %>
+                <% end %>
+              </div>
+        </div>
+      </div> <!-- closes the main-box-header div right below content-wrapper -->
+
+      <div class="main-box clearfix add-padding" >
+          <div class="row">
+            <div class="col-lg-12">
+              <h1>My ToDos</h1>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="main-box-body clearfix">
+                          <% @todos.each do |todo| %>
+                              <div class="panel-group accordion" id="accordion">
+                                    <div class="panel panel-default">
+
+                                    <!-- Renders each todo item as a panel -->
+                                        <%= render partial: 'todos/todo', locals: {todo: todo} %>
+                                    <!-- Renders each todo action item -->
+                                        <% todo.todo_actions.each do |todo_action| %>
+                                            <%= render partial: 'todo_actions/todo_action_row', locals: {todo: todo, todo_action: todo_action} %>
+                                        <% end %>
+
+                                        <!-- Edit Todo Modal -->
+                                        <%= render partial: 'todos/edit_todo_modal', locals: {todo:todo} %>
+
+                                        <!-- New Pomodoro(todo_action) Modal -->
+                                        <%= render partial: 'todo_actions/new_todo_action_modal', locals: {todo_action: @todo_action, todo:todo} %>
+                                    </div>
+                              </div>
+                          <% end %>
+                    </div>
+                </div>
+           </div>
+
+       </div>
+</div>

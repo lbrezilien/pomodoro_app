@@ -1,0 +1,22 @@
+Database / Domain Modeling
+  Users table
+    email
+    password_digest
+  The purpose of the users table is to enable login/out as well a method of keeping track of pomodoros for each user. It also allows the pomodoros to be personal and secure.
+  The devise gem was integrated into this project to speed up the development of the login flow.
+
+  todos table
+      Is linked to a Users table through a one to many relationship
+      Linked to the actions table via a many to many relationship
+      item_name
+      item_description
+
+      The todos table holds whatever the user hopes to achieve, this     is automatically marked as complete when all of its actions are complete.
+
+  actionItems table
+     Is linked to a Todos table through a one to many relationship
+
+
+     todo_id
+     item_name
+     the action items table holds the actual pomodoros

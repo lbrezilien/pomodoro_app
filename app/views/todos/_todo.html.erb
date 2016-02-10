@@ -1,0 +1,23 @@
+
+  <div class="panel-heading"> <!-- Todo Item outer Panel Title -->
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= todo.id %>">
+        <%= todo.name %> <span class='pull-right'> <%= TodoAction.pomodoro_status(todo) %> </span> </a>
+      </h4>
+  </div>
+
+  <div id="collapse<%= todo.id %>" class="panel-collapse collapse"> <!-- Todo item inner panel header -->
+      <div class="panel-body">
+              <div class="row todo-item-header">
+                  <div class="col-xs-2" data-toggle="modal" data-target="#myModal<%= todo.id %>">
+                    <a><i class="fa fa-pencil"></i> Edit Todo</a>
+                  </div>
+
+                  <%= link_to todo_path(todo), class:'col-xs-2', method: :delete do %>
+                      <i class="fa fa-trash"></i> Delete Todo
+                  <% end %>
+
+                  <div class="col-xs-3 pull-right" data-toggle="modal" data-target="#newActionForTodo<%= todo.id %>">
+                    <a>  <i class="fa fa-plus"></i> Add a Pomodoro</a>
+                  </div>
+              </div>
